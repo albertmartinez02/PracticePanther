@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP.MAUI.Controls.SearchBarControl">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="11*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Entry Grid.Column="0" Text="{Binding QueryText}"></Entry>
+            <Button Grid.Column="1" 
+                    Text="{Binding SearchButtonText}"
+                    Command="{Binding SearchCommand}"></Button>
+        </Grid>
+    </VerticalStackLayout>
+</ContentView>

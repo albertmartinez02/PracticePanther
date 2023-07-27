@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP.MAUI.Views.TimeEdit"
+             Title="TimeEdit"
+             NavigatedTo="OnArrival">
+    <VerticalStackLayout>
+        <Label Text="Narrative"
+               FontAttributes="Bold"/>
+        <Editor Text="{Binding Path=Model.Narrative}"
+                AutoSize="TextChanges"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Ok"
+                    Clicked="OkClicked"
+                    Grid.Column="0"/>
+            <Button Text="Cancel"
+                    Clicked="CancelClicked"
+                    Grid.Column="1"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

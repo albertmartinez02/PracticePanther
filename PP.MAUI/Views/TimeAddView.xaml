@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP.MAUI.Views.TimeAddView"
+             Title="TimeAddView"
+             NavigatedTo="OnArrival">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Text="Employee"
+                   Grid.Row="0"
+                   FontAttributes="Bold"/>
+            <Picker 
+                   Grid.Row="1"
+                   ItemsSource="{Binding Employees}"
+                   SelectedItem="{Binding Employee}"/>
+            <Label Text="Project"
+                   Grid.Row="2"
+                   FontAttributes="Bold"/>
+            <Picker 
+                   Grid.Row="3"
+                   ItemsSource="{Binding Projects}"
+                   SelectedItem="{Binding Project}"/>
+            <Label Text="Hours"
+                   Grid.Row="4"
+                   FontAttributes="Bold"/>
+            <Entry Text="{Binding Path=HourDisplay}" 
+                   Grid.Row="5"
+                   ClearButtonVisibility="Never"/>
+        </Grid>
+        <Label Text="Narrative"
+               FontAttributes="Bold"/>
+        <Editor Placeholder="Enter work done for Project in time period"
+                Text="{Binding Path=Model.Narrative}"
+                AutoSize="TextChanges"/>
+
+        <Button Text="Ok"
+                Clicked="OkClicked"/>
+        <Button Text="Cancel"
+                Clicked="CancelClicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

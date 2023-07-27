@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP.MAUI.Views.ClientInfoView"
+             Title="ClientInfoView"
+             NavigatedTo="OnArrival">
+    <VerticalStackLayout>
+        <Label Text="Client Info"
+               FontAttributes="Bold"
+               Margin="10"/>
+        <Label Text="{Binding Path=DisplayFullClient}"/>
+        <Label Text="Project Info"
+               FontAttributes="Bold"
+               Margin="10"/>
+        <ListView
+            ItemsSource="{Binding Path=Projects}"
+            TranslationY="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                               Text="{Binding Path=DisplayFullProject}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Back"
+                Clicked="GoBack"
+                VerticalOptions="End"
+                WidthRequest="75"
+                HorizontalOptions="Start"
+                Margin="10"/>
+    </VerticalStackLayout>
+</ContentPage>

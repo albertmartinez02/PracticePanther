@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP.MAUI.Views.ProjectAddView"
+             Title="Add Project"
+             NavigatedTo="OnArrival">
+    <VerticalStackLayout>
+        <Grid RowSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   Text="Short Name of Project"
+                   FontAttributes="Bold"/>
+            <Entry Grid.Row="1"
+                   Grid.Column="0"
+                   Text="{Binding Path=Model.ShortName}"
+                   ClearButtonVisibility="WhileEditing"/>
+            <Label Text="Long Name of Project"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   FontAttributes="Bold"/>
+            <Entry Grid.Row="3"
+                   Grid.Column="0"
+                   Text="{Binding Path=Model.LongName}"
+                   ClearButtonVisibility="WhileEditing"/>
+            <Label Text="Is Active?"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                   FontAttributes="Bold"/>
+            <Switch IsToggled="{Binding Path=Model.IsActive}" 
+                    Grid.Row="5"
+                    Grid.Column="0"/>
+            <Button Text="OK" 
+                    Command="{Binding Path=AddCommand}"
+                    CommandParameter="{Binding}"
+                    Grid.Row="6" Grid.Column="0"/>
+            <Button Text="Cancel" Clicked="CancelClicked" Grid.Row="6" Grid.Column="1"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

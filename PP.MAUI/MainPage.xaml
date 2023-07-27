@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP.MAUI.MainPage"
+             Title="Practice Panther">
+
+    <StackLayout Orientation="Horizontal">
+        <Button Text="Clients &amp; Projects"
+                VerticalOptions="Start"
+                Clicked="Client_Clicked"/>
+        <Button Text="Employees"
+                VerticalOptions="Start"
+                Clicked="Employee_Clicked"/>
+        <Button Text="Time Entries"
+                VerticalOptions="Start"
+                Clicked="TimeClicked"/>
+    </StackLayout>
+
+</ContentPage>

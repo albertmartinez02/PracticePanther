@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:c="clr-namespace:PP.MAUI.Controls"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP.MAUI.Views.EmployeeView"
+             Title="EmployeeView"
+             NavigatedTo="OnArrival">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="11*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <c:SearchBarControl Grid.Column="0"
+                                    QueryText="{Binding Query}"
+                                    SearchButtonText="Search"
+                                    SearchCommand="{Binding SearchCommand}"/>
+                <Button Text="Add Emp"
+                        Command="{Binding Path=AddCommand}"
+                        CommandParameter="{Binding}"
+                        Grid.Column="1"/>
+                <Button Text="Back"
+                        Clicked="BackClicked"
+                        Grid.Column="2"/>
+            </Grid>
+            <ListView
+            ItemsSource="{Binding Path=Employees}"
+            TranslationY="25"
+            BackgroundColor="BlanchedAlmond">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="11*"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Path=Display}"/>
+                                <Button Grid.Column="1"
+                                         Text="Edit"
+                                         BackgroundColor="DarkGrey"
+                                         Command="{Binding Path=EditCommand}"
+                                         CommandParameter="{Binding}"/>
+                                <Button Grid.Column="2"
+                                         Text="Delete"
+                                         BackgroundColor="DarkGrey"
+                                         Command="{Binding Path=DeleteCommand}"
+                                         CommandParameter="{Binding}"
+                                         Clicked="DeleteClicked"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

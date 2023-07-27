@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP.MAUI.Views.TimeView"
+             Title="Time Entry"
+             NavigatedTo="OnArriving">
+    <VerticalStackLayout>
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="End">
+            <Button Text="Back"
+                Clicked="BackClicked"
+                HorizontalOptions="End"/>
+            <Button Text="Add"
+                Clicked="AddClicked"
+                HorizontalOptions="End"/>
+        </StackLayout>
+        <ListView
+            ItemsSource="{Binding Times}"
+            BackgroundColor="BlanchedAlmond">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding Path=Model.Hours}"/>
+                            <Label Grid.Column="1" Text="{Binding Path=EmployeeDisplay}"/>
+                            <Label Grid.Column="2" Text="{Binding Path=ProjectDisplay}"/>
+                            <Label Grid.Column="3" Text="{Binding Path=Model.Narrative}"/>
+                            <Button Grid.Column="5" Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding}"
+                                    BackgroundColor="DarkGrey" Text="Delete"
+                                    Clicked="DeleteClicked"/>
+                            <Button Grid.Column="4" Command="{Binding Path=EditCommand}" CommandParameter="{Binding}"
+                                    BackgroundColor="DarkGrey" Text="Edit"
+                                    Clicked="EditClicked"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

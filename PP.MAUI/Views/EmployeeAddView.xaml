@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP.MAUI.Views.EmployeeAddView"
+             Title="EmployeeAddView"
+             NavigatedTo="OnArriving"
+             NavigatedFrom="OnLeaving">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   Padding="10"
+                   Text="Name"
+                   FontAttributes="Bold"/>
+            <Entry Grid.Row="1"
+                   Grid.Column="0"
+                   Text="{Binding Path=Model.Name}"
+                   ClearButtonVisibility="WhileEditing"/>
+            <Label Grid.Row="2"
+                   Grid.Column="0"
+                   Text="Employee Pay Rate"
+                   FontAttributes="Bold"/>
+            <Entry Grid.Row="3"
+                   Grid.Column="0"
+                   Text="{Binding Path=ModelRate}"
+                   ClearButtonVisibility="Never"/>
+        </Grid>
+
+        <Grid Margin="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Text="OK" Clicked="OkClicked" Grid.Column="0"/>
+            <Button Text="Cancel" Clicked="CancelClicked"  Grid.Column="1"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

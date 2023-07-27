@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:PP.MAUI.Controls"
+             x:Class="PP.MAUI.Views.ClientAddView"
+             Title="Add Client"
+             NavigatedTo="OnArriving"
+             NavigatedFrom="OnLeaving">
+
+    <VerticalStackLayout>
+        <Grid RowSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   Padding="10"
+                   Text="Name"
+                   FontAttributes="Bold"/>
+            <Entry Grid.Row="1"
+                   Text="{Binding Path=Model.Name}"
+                   ClearButtonVisibility="WhileEditing"
+                   Grid.Column="0"/>
+            <Label Grid.Row="2"
+                   Grid.Column="0"
+                   Margin="5"
+                   Text="Client Notes"
+                   FontAttributes="Bold"/>
+            <Editor Grid.Row="3"
+                    Text="{Binding Path=Model.Notes}"
+                    Grid.Column="0"
+                   AutoSize="TextChanges"/>
+        </Grid>
+
+        <Label Text="Projects"
+               Margin="10"
+               FontAttributes="Bold"/>
+        <Grid ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="12*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <c:SearchBarControl Grid.Column="0" 
+                                QueryText="{Binding Query}"
+                                SearchButtonText="Search"
+                                SearchCommand="{Binding SearchCommand}"/>
+            <Button   Text="Add Project"
+                      Clicked="AddProjectClicked"
+                      HorizontalOptions="End"
+                      Grid.Column="1"
+                      WidthRequest="135"/>
+        </Grid>
+
+        <ListView
+            ItemsSource="{Binding Path=Projects}"
+            TranslationY="25"
+            BackgroundColor="BlanchedAlmond">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="11*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                               Text="{Binding Path=Display}"/>
+                            <Button Grid.Column="1"
+                                Text="Edit"
+                                Command="{Binding Path=EditCommand}"
+                                CommandParameter="{Binding}"
+                                BackgroundColor="DarkGrey"/>
+                            <Button Grid.Column="2"
+                                Text="Timer"
+                                Command="{Binding Path=TimerCommand}"
+                                CommandParameter="{Binding}"
+                                BackgroundColor="DarkGrey"/>
+                            <Button Grid.Column="3"
+                                Text="Delete"
+                                Command="{Binding Path=DeleteCommand}"
+                                CommandParameter="{Binding}"
+                                BackgroundColor="DarkGrey"
+                                Clicked="DeleteClicked"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Margin="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Text="OK" Clicked="OKClicked" Grid.Column="0"/>
+            <Button Text="Cancel" Clicked="CancelClicked" Grid.Column="1"/>
+        </Grid>
+    </VerticalStackLayout>
+
+</ContentPage>
