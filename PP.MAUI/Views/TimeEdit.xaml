@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PP.MAUI.Views.TimeEdit"
              Title="TimeEdit"
-             NavigatedTo="OnArrival">
+             NavigatedTo="OnArrival"
+             NavigatedFrom="OnLeave">
     <VerticalStackLayout>
         <Label Text="Narrative"
                FontAttributes="Bold"/>

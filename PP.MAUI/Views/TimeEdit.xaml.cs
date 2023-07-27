@@ -27,4 +27,9 @@ public partial class TimeEdit : ContentPage
     {
         Shell.Current.GoToAsync("//TimeView");
     }
+
+    private void OnLeave(object sender, NavigatedFromEventArgs e)
+    {
+        BindingContext = null;
+    }
 }
