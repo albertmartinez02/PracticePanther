@@ -71,7 +71,6 @@
                                 <ColumnDefinition Width="11*"/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
-                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0"
                                Text="{Binding Path=Display}"/>
@@ -81,11 +80,6 @@
                                 CommandParameter="{Binding}"
                                 BackgroundColor="DarkGrey"/>
                             <Button Grid.Column="2"
-                                Text="Timer"
-                                Command="{Binding Path=TimerCommand}"
-                                CommandParameter="{Binding}"
-                                BackgroundColor="DarkGrey"/>
-                            <Button Grid.Column="3"
                                 Text="Delete"
                                 Command="{Binding Path=DeleteCommand}"
                                 CommandParameter="{Binding}"

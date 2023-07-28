@@ -25,32 +25,6 @@ namespace PP.Library.Models
             return $"{ID} {ShortName}";
         }
 
-        //public Project(int clientID) //Default Constructor
-        //{
-        //    Console.Write("Enter the projects's long name: ");
-        //    var longname = Console.ReadLine() ?? string.Empty;
-
-        //    Console.Write("Enter the projects's short name: ");
-        //    var shortname = Console.ReadLine() ?? string.Empty;
-
-        //    Console.Write("Enter a Project ID: ");
-        //    var pid = int.Parse(Console.ReadLine() ?? "0");
-
-        //    Console.Write("Enter an starting date for project startup in mm/dd/yyyy format: ");
-        //    var openDate = DateTime.Parse(Console.ReadLine() ?? DateTime.Today.ToString());
-
-
-        //    bool active = true;
-
-        //    LongName = longname;
-        //    ShortName = shortname;
-        //    ID = pid;
-        //    OpenDate = openDate;
-        //    IsActive = active;
-        //    ClientId = clientID;
-
-        //}
-
 
     }
 }
