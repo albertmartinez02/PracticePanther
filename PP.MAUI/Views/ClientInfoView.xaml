@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PP.MAUI.Views.ClientInfoView"
-             Title="ClientInfoView"
+             Title="Client Information"
              NavigatedTo="OnArrival">
     <VerticalStackLayout>
         <Label Text="Client Info"
