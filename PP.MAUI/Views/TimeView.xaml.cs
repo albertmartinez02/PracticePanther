@@ -34,4 +34,8 @@ public partial class TimeView : ContentPage
         (BindingContext as TimeViewViewModel).RefreshTimes();
     }
 
+    private void GenerateBillClicked(object sender, EventArgs e)
+    {
+        ;
+    }
 }

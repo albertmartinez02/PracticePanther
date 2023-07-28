@@ -12,6 +12,10 @@ namespace PP.Library.Models
 
         public DateTime DueDate { get; set; }
 
+        public int ClientID { get; set; }
+
+        public int ProjectID { get; set; }
+
         public override string? ToString()
         {
             return $"Due Date: {DueDate.ToString()}\n Total Amount: {TotalAmount.ToString()}";

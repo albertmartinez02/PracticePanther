@@ -13,6 +13,9 @@
             <Button Text="Add"
                 Clicked="AddClicked"
                 HorizontalOptions="End"/>
+            <Button Text="Generate Bill"
+                    Clicked="GenerateBillClicked"
+                    HorizontalOptions="End"/>
         </StackLayout>
         <ListView
             ItemsSource="{Binding Times}"
