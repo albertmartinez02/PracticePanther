@@ -18,11 +18,16 @@ public partial class BillAddView : ContentPage
 
     private void CreateClicked(object sender, EventArgs e)
     {
-        ;
+        Shell.Current.GoToAsync("//TimeView");
     }
 
     private void CancelClicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("//TimeView");
+    }
+
+    private void OnLeave(object sender, NavigatedFromEventArgs e)
+    {
+        BindingContext = null;
     }
 }

@@ -10,7 +10,7 @@ namespace PP.Library.Models
     {
         public string? Name { get; set; }
         public decimal Rate { get; set; }
-        public int ID { get; set; } //Read only , set in constructor
+        public int ID { get; set; } 
 
         public override string ToString()
         {
