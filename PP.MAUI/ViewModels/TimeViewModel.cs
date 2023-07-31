@@ -69,11 +69,14 @@ namespace PP.MAUI.ViewModels
             }
         }
 
+
         public string ProjectDisplay => Project?.ShortName ?? string.Empty;
 
         public ICommand DeleteCommand { get; private set; }
 
         public ICommand EditCommand { get; private set; }
+
+        public ICommand GenerateBillCommand { get; private set; }
 
         public void ExecuteDelete()
         {
@@ -86,10 +89,16 @@ namespace PP.MAUI.ViewModels
             Shell.Current.GoToAsync($"//TimeEdit?timeID={Model.Id}");
         }
 
+        public void ExecuteGenerate()
+        {
+            Shell.Current.GoToAsync($"//BillAddView?timeID={Model.Id}");
+        }
+
         public void SetUpCommands()
         {
             DeleteCommand = new Command(ExecuteDelete);
             EditCommand = new Command(ExecuteEdit);
+            GenerateBillCommand = new Command(ExecuteGenerate);
         }
 
         public ObservableCollection<Employee> Employees
@@ -126,6 +135,11 @@ namespace PP.MAUI.ViewModels
             if (tid > 0)
             {
                 Model = TimeService.Current.Get(tid);
+                var employee = EmployeeService.Current.Get(Model.EmployeeId);
+                if (employee != null)
+                {
+                    Employee = employee;
+                }
                 SetUpCommands();
             }
         }

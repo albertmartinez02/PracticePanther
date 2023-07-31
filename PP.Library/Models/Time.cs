@@ -15,7 +15,7 @@ namespace PP.Library.Models
 
         public string? Narrative { get; set; }
 
-        public decimal? Hours { get; set; }
+        public decimal Hours { get; set; }
 
         public int Id { get; set; } //Id for time entry
 

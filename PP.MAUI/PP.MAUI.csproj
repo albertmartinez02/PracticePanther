@@ -60,6 +60,9 @@
 	  <MauiXaml Update="Controls\SearchBarControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\BillAddView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ClientAddView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

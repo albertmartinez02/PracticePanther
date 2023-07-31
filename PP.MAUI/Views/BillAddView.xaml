@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PP.MAUI.Views.BillAddView"
+             Title="Generate Bill"
+             NavigatedTo="OnArrival">
+    <HorizontalStackLayout>
+        <Border WidthRequest="600"
+                HeightRequest="600"
+                Stroke="Black"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Text="Total Hrs."
+                       FontAttributes="Bold"
+                       Grid.Row="0"
+                       Grid.Column="0"/>
+                <Label Text="{Binding Path=totalhrs}"
+                       Grid.Row="0"
+                       Grid.Column="1"/>
+                <Label Text="Employee Rate"
+                       FontAttributes="Bold"
+                       Grid.Row="1"
+                       Grid.Column="0"/>
+                <Label Text="{Binding Path=employeerate}"
+                       Grid.Row="1"
+                       Grid.Column="1"/>
+                <Label Text="Total Amount"
+                       FontAttributes="Bold"
+                       Grid.Row="2"
+                       Grid.Column="0"/>
+                <Label Text="{Binding Path=total}"
+                       Grid.Row="2"
+                       Grid.Column="1"/>
+                <Label Text="Due Date"
+                       FontAttributes="Bold"
+                       Grid.Row="3"
+                       Grid.Column="0"/>
+                <DatePicker Grid.Row="3"
+                            Grid.Column="1"
+                            Date="{Binding Path=Model.DueDate}"
+                            MinimumDate="01/01/23"/>
+            </Grid>
+        </Border>
+        <Button Text="Create Bill"
+                Clicked="CreateClicked"
+                Command="{Binding Path=AddCommand}"
+                CommandParameter="{Binding}"
+                VerticalOptions="Start"/>
+        <Button Text="Cancel"
+                Clicked="CancelClicked"
+                VerticalOptions="Start"/>
+    </HorizontalStackLayout>
+</ContentPage>

@@ -11,8 +11,8 @@ namespace PP.Library.Models
         public decimal TotalAmount { get; set; }
 
         public DateTime DueDate { get; set; }
-
-        public int ClientID { get; set; }
+        
+        public int EmployeeID { get; set; }
 
         public int ProjectID { get; set; }
 

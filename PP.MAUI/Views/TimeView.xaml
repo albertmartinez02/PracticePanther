@@ -13,9 +13,6 @@
             <Button Text="Add"
                 Clicked="AddClicked"
                 HorizontalOptions="End"/>
-            <Button Text="Generate Bill"
-                    Clicked="GenerateBillClicked"
-                    HorizontalOptions="End"/>
         </StackLayout>
         <ListView
             ItemsSource="{Binding Times}"
@@ -31,6 +28,7 @@
                                 <ColumnDefinition Width="8*"/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0" Text="{Binding Path=Model.Hours}"/>
                             <Label Grid.Column="1" Text="{Binding Path=EmployeeDisplay}"/>
@@ -42,6 +40,8 @@
                             <Button Grid.Column="4" Command="{Binding Path=EditCommand}" CommandParameter="{Binding}"
                                     BackgroundColor="DarkGrey" Text="Edit"
                                     Clicked="EditClicked"/>
+                            <Button Grid.Column="6" Command="{Binding Path=GenerateBillCommand}" CommandParameter="{Binding}"
+                                    BackgroundColor="DarkGrey" Text="Generate Bill"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
