@@ -53,6 +53,8 @@ namespace PP.MAUI.ViewModels
         public void ExecuteAdd()
         {
             BillService.Current.Add(Model);
+            time.BillGenerated = false;
+            RefreshProperties();
         }
         
         public void SetUpCommands()

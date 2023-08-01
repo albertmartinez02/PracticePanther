@@ -23,6 +23,20 @@ namespace PP.Library.Models
 
         public int ProjectId { get; set; }
 
+        private bool billGenerated = true;
+
+        public bool BillGenerated //UI experience consideration: if true, bill button visible
+        {                         //If not, client cannot generate bill again
+            get 
+            {
+                return billGenerated;
+            } 
+            set 
+            { 
+                billGenerated = value;
+            } 
+        } 
+
         public override string ToString()
         {
             return $"{Narrative}\nHours spent: {Hours}\nProject ID: {ProjectId}\nEmployee ID: {EmployeeId}";

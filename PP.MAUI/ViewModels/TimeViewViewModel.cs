@@ -24,6 +24,19 @@ namespace PP.MAUI.ViewModels
             }
         }
 
+        private bool isButtonVisible = true;
+
+        public bool IsButtonVisible { 
+            get 
+            { 
+                return isButtonVisible;
+            }
+            set
+            {
+                isButtonVisible = value;
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
