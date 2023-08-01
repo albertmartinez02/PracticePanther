@@ -41,7 +41,9 @@
                                     BackgroundColor="DarkGrey" Text="Edit"
                                     Clicked="EditClicked"/>
                             <Button Grid.Column="6" Command="{Binding Path=GenerateBillCommand}" CommandParameter="{Binding}"
-                                    BackgroundColor="DarkGrey" Text="Generate Bill"/>
+                                    BackgroundColor="DarkGrey" Text="Generate Bill"
+                                    Clicked="GenerateClicked"
+                                    IsVisible="{Binding IsButtonVisible}"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

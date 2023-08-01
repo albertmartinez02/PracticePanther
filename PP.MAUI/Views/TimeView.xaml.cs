@@ -4,6 +4,7 @@ namespace PP.MAUI.Views;
 
 public partial class TimeView : ContentPage
 {
+   
     public TimeView()
     {
         InitializeComponent();
@@ -34,4 +35,8 @@ public partial class TimeView : ContentPage
         (BindingContext as TimeViewViewModel).RefreshTimes();
     }
 
+    private void GenerateClicked(object sender, EventArgs e)
+    {
+
+    }
 }

@@ -14,6 +14,19 @@ namespace PP.MAUI.ViewModels
 {
     public class TimeViewModel : INotifyPropertyChanged
     {
+        private bool isButtonVisible = true;
+        public bool IsButtonVisible
+        {
+            get
+            {
+                return isButtonVisible;
+            }
+            set
+            {
+                isButtonVisible = value;
+            }
+        }
+
         public Time Model { get; set; }
 
         public string HourDisplay
@@ -92,6 +105,9 @@ namespace PP.MAUI.ViewModels
         public void ExecuteGenerate()
         {
             Shell.Current.GoToAsync($"//BillAddView?timeID={Model.Id}");
+            isButtonVisible = false;
+            NotifyPropertyChanged(nameof(Time));
+            NotifyPropertyChanged(nameof(isButtonVisible));
         }
 
         public void SetUpCommands()
