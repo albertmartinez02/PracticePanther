@@ -14,6 +14,7 @@ public partial class BillAddView : ContentPage
     private void OnArrival(object sender, NavigatedToEventArgs e)
     {
 		BindingContext = new BillViewModel(TimeID);
+        (BindingContext as BillViewModel).RefreshProperties();
     }
 
     private void CreateClicked(object sender, EventArgs e)

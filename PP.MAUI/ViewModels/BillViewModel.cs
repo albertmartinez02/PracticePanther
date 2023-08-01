@@ -2,15 +2,23 @@
 using PP.Library.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace PP.MAUI.ViewModels
 {
-    public class BillViewModel
+    public class BillViewModel : INotifyPropertyChanged
     {
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public Bill Model { get; set; }
 
         public Time time { get; set; }
@@ -50,6 +58,13 @@ namespace PP.MAUI.ViewModels
         public void SetUpCommands()
         {
             AddCommand = new Command(ExecuteAdd);
+        }
+
+        public void RefreshProperties()
+        {
+            NotifyPropertyChanged(nameof(Model));
+            NotifyPropertyChanged(nameof(employee));
+            NotifyPropertyChanged(nameof(time));
         }
     }
 }

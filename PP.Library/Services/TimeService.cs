@@ -43,13 +43,12 @@ namespace PP.Library.Services
             times = new List<Time>
             {
                 new Time {Id=1 , EmployeeId=1 , ProjectId=1 , Hours=1.75M , Narrative="Test"},
-                new Time {Id=2 , EmployeeId=1 , ProjectId=1 , Hours=1.25M , Narrative="Another Test" }
             };
         }
 
         public Time? Get(int Tid)
         {
-            return times.FirstOrDefault(t => t.EmployeeId == Tid);
+            return times.FirstOrDefault(t => t.Id == Tid);
         }
 
         public void Add(Time? time)
