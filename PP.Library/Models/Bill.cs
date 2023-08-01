@@ -16,6 +16,8 @@ namespace PP.Library.Models
 
         public int ProjectID { get; set; }
 
+        public int ClientID { get; set; } //Used for display in other parts of the application
+
         public override string? ToString()
         {
             return $"Due Date: {DueDate.ToString()}\n Total Amount: {TotalAmount.ToString()}";

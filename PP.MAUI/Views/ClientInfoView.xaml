@@ -23,12 +23,34 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0"
-                               Text="{Binding Path=DisplayFullProject}"/>
+                                   Text="{Binding Path=DisplayFullProject}"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Label Text="Bills"
+               FontAttributes="Bold"
+               Margin="10"/>
+        <ListView
+            ItemsSource="{Binding Path=Bills}"
+            TranslationY="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                   Text="{Binding Path=DisplayFullBill}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
         <Button Text="Back"
                 Clicked="GoBack"
                 VerticalOptions="End"

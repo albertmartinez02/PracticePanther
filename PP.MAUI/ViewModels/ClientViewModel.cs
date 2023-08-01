@@ -38,6 +38,20 @@ namespace PP.MAUI.ViewModels
             }
         }
 
+        public ObservableCollection<BillViewModel> Bills
+        {
+            get
+            {
+                if(Model == null)
+                {
+                    return new ObservableCollection<BillViewModel>();
+                }
+                return new ObservableCollection<BillViewModel>(BillService
+                    .Current.Bills.Where(b => b.ClientID == Model.Id)
+                    .Select(r => new BillViewModel(r)));
+            }
+        }
+
         public ClientViewModel(Client c)
         {
             Model = c;

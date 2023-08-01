@@ -34,6 +34,7 @@ namespace PP.MAUI.ViewModels
             Model.TotalAmount = time.Hours * employee.Rate;
             Model.EmployeeID = employee.ID;
             Model.ProjectID = time.ProjectId;
+            Model.ClientID = ProjectService.Current.Get(time.ProjectId).ClientId; //Get client's id
             //Initialize String Properties for binding
             totalhrs = time.Hours.ToString();
             employeerate = employee.Rate.ToString();
@@ -42,11 +43,22 @@ namespace PP.MAUI.ViewModels
             SetUpCommands();
         }
 
+        public BillViewModel(Bill bill)
+        {
+            Model = bill;
+            total = Model.TotalAmount.ToString("N2");
+            employee = EmployeeService.Current.Get(Model.EmployeeID);
+            employeerate = employee.Rate.ToString();
+            ProjectName = ProjectService.Current.Get(Model.ProjectID).ShortName;
+        }
+
         public string totalhrs { get; set; }
 
         public string employeerate { get; set; }
 
         public string total { get; set; }
+
+        public string ProjectName { get; set; }
 
         public ICommand AddCommand { get; private set; }
 
@@ -67,6 +79,15 @@ namespace PP.MAUI.ViewModels
             NotifyPropertyChanged(nameof(Model));
             NotifyPropertyChanged(nameof(employee));
             NotifyPropertyChanged(nameof(time));
+        }
+
+        public string DisplayFullBill
+        {
+            get 
+            {
+                string DFB = $"Project: {ProjectName}\nTotal: {total}\nEmployee Rate: {employeerate}\nDue Date: {Model.DueDate.ToString()}";
+                return DFB;
+            }
         }
     }
 }
