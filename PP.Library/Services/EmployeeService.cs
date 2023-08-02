@@ -51,7 +51,7 @@ namespace PP.Library.Services
 
         public Employee? Get(int id)
         {
-            return employees.FirstOrDefault(e => e.ID == id);
+            return Employees.FirstOrDefault(e => e.ID == id);
         }
 
         public void Add(Employee? employee)
@@ -59,13 +59,13 @@ namespace PP.Library.Services
             if (employee != null && employee.ID == 0)
             {
                 employee.ID = LastId + 1;
-                employees.Add(employee);
+                Employees.Add(employee);
             }
         }
 
         public void Read()
         {
-            employees.ForEach(Console.WriteLine);
+            Employees.ForEach(Console.WriteLine);
         }
 
         public void Delete(int empID)
@@ -73,13 +73,13 @@ namespace PP.Library.Services
             var employeeToRemove = Get(empID);
             if (employeeToRemove != null)
             {
-                employees.Remove(employeeToRemove);
+                Employees.Remove(employeeToRemove);
             }
         }
 
         public bool IdExists(int? empid)
         {
-            var E = employees.FirstOrDefault(e => e.ID == empid);
+            var E = Employees.FirstOrDefault(e => e.ID == empid);
             if (E == null)
                 return false;
             return true;

@@ -48,18 +48,18 @@ namespace PP.Library.Services
 
         public Time? Get(int Tid)
         {
-            return times.FirstOrDefault(t => t.Id == Tid);
+            return Times.FirstOrDefault(t => t.Id == Tid);
         }
 
         public void Add(Time? time)
         {
             if (time != null)
-                times.Add(time);
+                Times.Add(time);
         }
 
         public void Read()
         {
-            times.ForEach(Console.WriteLine);
+            Times.ForEach(Console.WriteLine);
         }
 
         public void Delete(Time t)
@@ -72,7 +72,7 @@ namespace PP.Library.Services
             if (t != null && t.Id == 0)
             {
                 t.Id = LastID + 1;
-                times.Add(t);
+                Times.Add(t);
             }
         }
 

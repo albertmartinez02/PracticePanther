@@ -45,14 +45,14 @@ namespace PP.Library.Services
 
         public Bill? Get(int pid)
         {
-            return bills.FirstOrDefault(b => b.ProjectID == pid);
+            return Bills.FirstOrDefault(b => b.ProjectID == pid);
         }
 
         public void Add(Bill b)
         {
             if(b != null)
             {
-                bills.Add(b);
+                Bills.Add(b);
             }
         }
 
@@ -60,7 +60,7 @@ namespace PP.Library.Services
         {
             if( b != null)
             {
-                bills?.Remove(b);
+                Bills?.Remove(b);
             }
         }
 

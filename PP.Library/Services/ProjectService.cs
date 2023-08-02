@@ -28,7 +28,7 @@ namespace PP.Library.Services
 
         private List<Project> projects;
 
-        public List<Project>? Projects
+        public List<Project> Projects
         {
             get { return projects; }
         }
@@ -49,7 +49,7 @@ namespace PP.Library.Services
             {
                 proj.ID = LastID + 1;
                 proj.OpenDate = DateTime.Now; //Possible trouble point , look out
-                projects.Add(proj);
+                Projects.Add(proj);
             }
         }
 
@@ -57,7 +57,7 @@ namespace PP.Library.Services
         {
             get
             {
-                return projects.Any() ? projects.Select(p => p.ID).Max() : 0;
+                return Projects.Any() ? projects.Select(p => p.ID).Max() : 0;
             }
         }
 

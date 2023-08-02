@@ -10,7 +10,7 @@ namespace PP.Library.Utilities
     public class WebRequestHandler
     {
         private string host = "localhost";
-        private string port = "7043";
+        private string port = "5128";
         private HttpClient Client { get; }
         public WebRequestHandler()
         {
@@ -18,13 +18,13 @@ namespace PP.Library.Utilities
         }
         public async Task<string> Get(string url)
         {
-            var fullUrl = $"https://{host}:{port}{url}";
+            var fullUrl = $"http://{host}:{port}{url}";
             try
             {
                 using (var client = new HttpClient())
                 {
                     var response = await client
-                        .GetStringAsync(fullUrl)
+                        .GetStringAsync(url)
                         .ConfigureAwait(false);
                     return response;
                 }
