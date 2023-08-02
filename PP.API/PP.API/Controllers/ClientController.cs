@@ -15,7 +15,7 @@ namespace PP.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("GetClients")]
         public IEnumerable<Client> Get()
         {
             return FakeDatabase.Clients;

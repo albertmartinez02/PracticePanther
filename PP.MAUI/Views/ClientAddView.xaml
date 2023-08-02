@@ -37,7 +37,7 @@
             <Editor Grid.Row="3"
                     Text="{Binding Path=Model.Notes}"
                     Grid.Column="0"
-                   AutoSize="TextChanges"/>
+                    AutoSize="TextChanges"/>
         </Grid>
 
         <Label Text="Projects"
@@ -48,10 +48,7 @@
                 <ColumnDefinition Width="12*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <c:SearchBarControl Grid.Column="0" 
-                                QueryText="{Binding Query}"
-                                SearchButtonText="Search"
-                                SearchCommand="{Binding SearchCommand}"/>
+           
             <Button   Text="Add Project"
                       Clicked="AddProjectClicked"
                       HorizontalOptions="End"
