@@ -22,6 +22,11 @@ namespace PP.MAUI.ViewModels
         {
             Model.Rate = decimal.Parse(d, CultureInfo.InvariantCulture);
         }
+
+        public void DecimalToString(decimal d)
+        {
+            ModelRate = d.ToString(CultureInfo.InvariantCulture);
+        }
         public void AddOrUpdate()
         {
             if (ModelRate != null)
@@ -43,6 +48,10 @@ namespace PP.MAUI.ViewModels
             if (eid > 0)
             {
                 Model = EmployeeService.Current.Get(eid);
+                if(Model.Rate != null)
+                {
+                    DecimalToString(Model.Rate);
+                }
             }
             else
             {

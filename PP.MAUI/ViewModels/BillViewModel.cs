@@ -85,7 +85,7 @@ namespace PP.MAUI.ViewModels
         {
             get 
             {
-                string DFB = $"Project: {ProjectName}\nTotal: {total}\nEmployee Rate: {employeerate}\nDue Date: {Model.DueDate.ToString()}";
+                string DFB = $"Project: {ProjectName}\nTotal: {total}\nEmployee Name: {employee.Name}\nEmployee Rate: {employeerate}\nDue Date: {Model.DueDate.ToString()}";
                 return DFB;
             }
         }

@@ -24,11 +24,42 @@ namespace PP.Library.Utilities
                 using (var client = new HttpClient())
                 {
                     var response = await client
-                        .GetStringAsync(url)
+                        .GetStringAsync(fullUrl)
                         .ConfigureAwait(false);
                     return response;
                 }
             } catch(Exception e)
+            {
+
+            }
+
+
+            return null;
+        }
+
+        public async Task<string> Delete(string url)
+        {
+            var fullUrl = $"http://{host}:{port}{url}";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    using (var request = new HttpRequestMessage(HttpMethod.Delete, url))
+                    {
+                        using (var response = await client
+                                .SendAsync(request, HttpCompletionOption.ResponseHeadersRead)
+                                .ConfigureAwait(false))
+                        {
+                            if (response.IsSuccessStatusCode)
+                            {
+                                return await response.Content.ReadAsStringAsync();
+                            }
+                            return "ERROR";
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
             {
 
             }
@@ -62,5 +93,7 @@ namespace PP.Library.Utilities
                 }
             }
         }
+
+
     }
 }

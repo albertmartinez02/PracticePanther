@@ -1,4 +1,5 @@
 ﻿using PP.Library.Models;
+using PP.Library.Services;
 
 namespace PP.API.Database
 {
@@ -14,5 +15,14 @@ namespace PP.API.Database
                 new Client{Id = 6 , OpenDate = DateTime.Now, IsActive = false, Name = "Client 6", Notes = "SixthClient" },
                 new Client{Id = 7 , OpenDate = DateTime.Now, IsActive = false, Name = "Client 7", Notes = "SeventhClient" },
             };
+
+        public static int LastClientID
+        {
+            get
+            {
+                return Clients.Select(c => c.Id).Max();
+            }
+        }
     }
+
 }

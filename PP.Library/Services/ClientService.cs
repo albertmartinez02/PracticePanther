@@ -38,15 +38,16 @@ namespace PP.Library.Services
         {
             get
             {
-                var response = new WebRequestHandler().Get("http://localhost:5128/Client/GetClients").Result;
-                var clients = JsonConvert.DeserializeObject<List<Client>>(response);
-                return clients ?? new List<Client>();
+                // return clients ?? new List<Client>();
+                return clients;
             }
         }
 
-        //private List<Client> clients; //Represents each client possible in the application lifecycle. This is it. The Singleton 
+        private List<Client> clients;
         private ClientService()       //Initialize a list of clients to start with
         {
+            var response = new WebRequestHandler().Get("/Client/GetClients").Result;
+            clients = JsonConvert.DeserializeObject<List<Client>>(response) ?? new List<Client>();
             //clients = new List<Client>()
             //{
             //    new Client{Id = 1, OpenDate = DateTime.Now, IsActive = false, Name = "Client 1", Notes = "FirstClient"},
@@ -61,6 +62,9 @@ namespace PP.Library.Services
 
         public Client? GetClient(int id)
         {
+            //var response = new WebRequestHandler().Get($"/Client/GetClients/{id}").Result;
+            //var client = JsonConvert.DeserializeObject<Client>(response);
+            //return client;
             return Clients.FirstOrDefault(c => c.Id == id);
         }
 
