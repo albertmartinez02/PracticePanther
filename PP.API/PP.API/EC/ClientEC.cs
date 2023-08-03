@@ -1,4 +1,5 @@
-﻿using PP.Library.Models;
+﻿using PP.API.Database;
+using PP.Library.Models;
 
 namespace PP.API.EC
 {
@@ -8,12 +9,19 @@ namespace PP.API.EC
         {
             if(client.Id > 0)
             {
-                //update
+                var clientToUpdate = FakeDatabase.Clients.FirstOrDefault(c => c.Id == client.Id);
+                if(clientToUpdate != null)
+                {
+                    FakeDatabase.Clients.Remove(clientToUpdate);
+                }
+                FakeDatabase.Clients.Add(client);
             }
             else
             {
-                //add
+                client.Id = FakeDatabase.LastClientID + 1;
+                FakeDatabase.Clients.Add(client);
             }
+            return client;
         } 
     }
 }

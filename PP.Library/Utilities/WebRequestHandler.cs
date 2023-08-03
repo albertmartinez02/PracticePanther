@@ -70,9 +70,10 @@ namespace PP.Library.Utilities
 
         public async Task<string> Post(string url, object obj)
         {
-            using(var client = new HttpClient())
+            var fullUrl = $"http://{host}:{port}{url}";
+            using (var client = new HttpClient())
             {
-                using(var request = new HttpRequestMessage(HttpMethod.Post, url))
+                using(var request = new HttpRequestMessage(HttpMethod.Post, fullUrl))
                 {
                     var json = JsonConvert.SerializeObject(obj);
                     using(var stringContent = new StringContent(json, Encoding.UTF8, "application/json"))

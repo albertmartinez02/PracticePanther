@@ -46,7 +46,7 @@ namespace PP.Library.Services
         private List<Client> clients;
         private ClientService()       //Initialize a list of clients to start with
         {
-            var response = new WebRequestHandler().Get("/Client/GetClients").Result;
+            var response = new WebRequestHandler().Get("/Client").Result;
             clients = JsonConvert.DeserializeObject<List<Client>>(response) ?? new List<Client>();
             //clients = new List<Client>()
             //{
@@ -70,13 +70,13 @@ namespace PP.Library.Services
 
         public void AddOrUpdate(Client? client)
         {
-            if (client != null && client.Id == 0) //If this is the add version of this function
-            {
-                client.Id = LastId + 1;
-                client.OpenDate = DateTime.Now;
-                Clients.Add(client);
-            }
-
+            //if (client != null && client.Id == 0) //If this is the add version of this function
+            //{
+            //    client.Id = LastId + 1;
+            //    client.OpenDate = DateTime.Now;
+            //    Clients.Add(client);
+            //}
+           var response = new WebRequestHandler().Post("/Client", client).Result;
         }
 
         public void Read()

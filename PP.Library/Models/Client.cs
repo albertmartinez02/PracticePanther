@@ -10,6 +10,11 @@ namespace PP.Library.Models
 {
     public class Client //Client can be part of many projects
     {
+        public Client() 
+        {
+            Name = string.Empty;
+            Notes = string.Empty;
+        }
         public int Id { get; set; }
         public DateTime OpenDate { get; set; }
         public DateTime? CloseDate { get; set; }
